@@ -285,7 +285,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               ),
             ],
           ),
-        ).animate().fadeIn(duration: 400.ms).slideY(begin: 0.05, end: 0);
+        );
       },
     );
   }
@@ -469,7 +469,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               ),
             ],
           ),
-        ).animate().fadeIn(duration: 450.ms).slideY(begin: 0.05, end: 0);
+        );
       },
     );
   }
@@ -678,7 +678,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
             ],
           ),
-        ).animate().fadeIn(duration: 500.ms).slideY(begin: 0.05, end: 0);
+        );
       },
     );
   }
@@ -928,7 +928,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
             ],
           ),
-        ).animate().fadeIn(duration: 550.ms).slideY(begin: 0.05, end: 0);
+        );
       },
     );
   }
@@ -1138,7 +1138,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
             ],
           ),
-        ).animate().fadeIn(duration: 600.ms).slideY(begin: 0.05, end: 0);
+        );
       },
     );
   }

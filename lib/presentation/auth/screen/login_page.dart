@@ -49,7 +49,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Logo Section
-                  _buildLogo().animate().fadeIn(duration: 800.ms).scale(begin: const Offset(0.8, 0.8)),
+                  _buildLogo(),
                   const SizedBox(height: 48),
 
                   // Login Card
@@ -80,7 +80,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             letterSpacing: -0.5,
                           ),
                           textAlign: TextAlign.center,
-                        ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.2),
+                        ),
                         const SizedBox(height: 8),
                         Text(
                           'Continue your learning journey with EduVision',
@@ -89,15 +89,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             color: Colors.white.withOpacity(0.6),
                           ),
                           textAlign: TextAlign.center,
-                        ).animate().fadeIn(delay: 300.ms).slideY(begin: 0.2),
+                        ),
                         const SizedBox(height: 48),
 
                         // Input Fields
                         _buildTextField(
                           controller: _usernameController,
-                          label: 'Username',
-                          icon: Icons.person_outline_rounded,
-                        ).animate().fadeIn(delay: 400.ms).slideX(begin: -0.1),
+                          label: 'Email',
+                          icon: Icons.email_outlined,
+                        ),
                         const SizedBox(height: 24),
 
                         _buildTextField(
@@ -107,7 +107,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           isPassword: true,
                           isPasswordVisible: _isPasswordVisible,
                           onToggleVisibility: () => setState(() => _isPasswordVisible = !_isPasswordVisible),
-                        ).animate().fadeIn(delay: 500.ms).slideX(begin: 0.1),
+                        ),
                         const SizedBox(height: 16),
 
                         // Forgot Password
@@ -120,11 +120,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               style: TextStyle(color: const Color(0xFF818CF8)),
                             ),
                           ),
-                        ).animate().fadeIn(delay: 600.ms),
+                        ),
                         const SizedBox(height: 32),
 
                         // Login Button
-                        _buildLoginButton(authState).animate().fadeIn(delay: 700.ms).scale(),
+                        _buildLoginButton(authState),
                         const SizedBox(height: 32),
 
                         // Signup Link
@@ -146,12 +146,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               ),
                             ),
                           ],
-                        ).animate().fadeIn(delay: 800.ms),
+                        ),
 
                         if (authState.hasError) _buildErrorLabel(authState.error.toString()),
                       ],
                     ),
-                  ).animate().fadeIn(duration: 600.ms).slideY(begin: 0.1),
+                  ),
                 ],
               ),
             ),
@@ -252,7 +252,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         elevation: 0,
       ),
       child: authState.isLoading
-          ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white)),
+                const SizedBox(width: 12),
+                const Text(
+                  'Signing In...',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ],
+            )
           : const Text(
               'Sign In',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 class AppConfig {
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://localhost:8080',
+    defaultValue: 'https://eduvision-backend-jnuf.onrender.com',
+  );
+
+  static const String supabaseUrl = String.fromEnvironment(
+    'SUPABASE_URL',
+    defaultValue: 'https://gbokmjcsddiekdbaaiij.supabase.co',
+  );
+
+  static const String supabaseKey = String.fromEnvironment(
+    'SUPABASE_KEY',
+    defaultValue:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdib2ttamNzZGRpZWtkYmFhaWlqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODI2NTI4NywiZXhwIjoyMDkzODQxMjg3fQ.us7FJ9Uy_eCsT7_u1_Ihw-6oS1ow__919_BXLV88IUc',
   );
 }
 

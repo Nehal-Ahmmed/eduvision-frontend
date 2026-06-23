@@ -303,7 +303,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                     ),
                                     icon: const Icon(Icons.add_rounded, size: 20),
                                     label: const Text('Add Course', style: TextStyle(fontWeight: FontWeight.bold)),
-                                  ).animate().scale(delay: 200.ms),
+                                  ),
                                 ],
                               ),
 
@@ -344,10 +344,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                 delegate: SliverChildBuilderDelegate(
                                   (context, index) {
                                     final course = _courses[index];
-                                    return _buildCourseCard(course)
-                                        .animate()
-                                        .fadeIn(duration: 400.ms, delay: (index * 50).ms)
-                                        .slideY(begin: 0.1, end: 0);
+                                    return _buildCourseCard(course);
                                   },
                                   childCount: _courses.length,
                                 ),
@@ -455,7 +452,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
           ),
         ],
       ),
-    ).animate().fadeIn(duration: 600.ms).slideY(begin: 0.2);
+    );
   }
 
   Widget _buildCourseCard(Course course) {

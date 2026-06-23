@@ -49,10 +49,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 children: [
-                  _buildHeaderIcon()
-                      .animate()
-                      .fadeIn(duration: 800.ms)
-                      .scale(begin: const Offset(0.8, 0.8)),
+                  _buildHeaderIcon(),
                   const SizedBox(height: 40),
 
                   Container(
@@ -82,7 +79,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                             letterSpacing: -0.5,
                           ),
                           textAlign: TextAlign.center,
-                        ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.2),
+                        ),
                         const SizedBox(height: 8),
                         Text(
                           'Join thousands of students on EduVision',
@@ -91,21 +88,21 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                             color: Colors.white.withOpacity(0.6),
                           ),
                           textAlign: TextAlign.center,
-                        ).animate().fadeIn(delay: 300.ms).slideY(begin: 0.2),
+                        ),
                         const SizedBox(height: 48),
 
                         _buildTextField(
                           controller: _usernameController,
                           label: 'Username',
                           icon: Icons.person_outline_rounded,
-                        ).animate().fadeIn(delay: 400.ms).slideX(begin: -0.1),
+                        ),
                         const SizedBox(height: 20),
 
                         _buildTextField(
                           controller: _emailController,
                           label: 'Email',
                           icon: Icons.email_outlined,
-                        ).animate().fadeIn(delay: 500.ms).slideX(begin: 0.1),
+                        ),
                         const SizedBox(height: 20),
 
                         _buildTextField(
@@ -117,12 +114,12 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                           onToggleVisibility: () => setState(
                             () => _isPasswordVisible = !_isPasswordVisible,
                           ),
-                        ).animate().fadeIn(delay: 600.ms).slideX(begin: -0.1),
+                        ),
                         const SizedBox(height: 32),
 
                         _buildSignupButton(
                           authState,
-                        ).animate().fadeIn(delay: 700.ms).scale(),
+                        ),
                         const SizedBox(height: 32),
 
                         Row(
@@ -145,13 +142,13 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                               ),
                             ),
                           ],
-                        ).animate().fadeIn(delay: 800.ms),
+                        ),
 
                         if (authState.hasError)
                           _buildErrorLabel(authState.error.toString()),
                       ],
                     ),
-                  ).animate().fadeIn(duration: 600.ms).slideY(begin: 0.1),
+                  ),
                 ],
               ),
             ),
@@ -263,13 +260,23 @@ class _SignupPageState extends ConsumerState<SignupPage> {
         elevation: 0,
       ),
       child: authState.isLoading
-          ? const SizedBox(
-              height: 20,
-              width: 20,
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-                color: Colors.white,
-              ),
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 20,
+                  width: 20,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                const Text(
+                  'Creating Account...',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ],
             )
           : const Text(
               'Create Account',

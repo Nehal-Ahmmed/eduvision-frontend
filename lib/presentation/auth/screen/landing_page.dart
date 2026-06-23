@@ -10,8 +10,6 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  bool _isHoveredSignIn = false;
-  bool _isHoveredSignUp = false;
 
   @override
   Widget build(BuildContext context) {
@@ -75,55 +73,39 @@ class _LandingPageState extends State<LandingPage> {
                               ),
                             ),
                           ],
-                        ).animate().fadeIn(duration: 600.ms).slideX(begin: -0.2),
+                        ),
                         Row(
                           children: [
-                            MouseRegion(
-                              onEnter: (_) => setState(() => _isHoveredSignIn = true),
-                              onExit: (_) => setState(() => _isHoveredSignIn = false),
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                transform: Matrix4.identity()..scale(_isHoveredSignIn ? 1.05 : 1.0),
-                                child: TextButton(
-                                  onPressed: () => context.go('/login'),
-                                  style: TextButton.styleFrom(
-                                    foregroundColor: Colors.white.withOpacity(0.8),
-                                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                                  ),
-                                  child: const Text(
-                                    'Sign In',
-                                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-                                  ),
-                                ),
+                            TextButton(
+                              onPressed: () => context.go('/login'),
+                              style: TextButton.styleFrom(
+                                foregroundColor: Colors.white.withOpacity(0.8),
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                              ),
+                              child: const Text(
+                                'Sign In',
+                                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                               ),
                             ),
                             const SizedBox(width: 12),
-                            MouseRegion(
-                              onEnter: (_) => setState(() => _isHoveredSignUp = true),
-                              onExit: (_) => setState(() => _isHoveredSignUp = false),
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                transform: Matrix4.identity()..scale(_isHoveredSignUp ? 1.05 : 1.0),
-                                child: ElevatedButton(
-                                  onPressed: () => context.go('/signup'),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFF6366F1),
-                                    foregroundColor: Colors.white,
-                                    padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(14),
-                                    ),
-                                    elevation: 0,
-                                  ),
-                                  child: const Text(
-                                    'Get Started',
-                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                                  ),
+                            ElevatedButton(
+                              onPressed: () => context.go('/signup'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF6366F1),
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(14),
                                 ),
+                                elevation: 0,
+                              ),
+                              child: const Text(
+                                'Get Started',
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                               ),
                             ),
                           ],
-                        ).animate().fadeIn(duration: 600.ms).slideX(begin: 0.2),
+                        ),
                       ],
                     ),
 
@@ -157,7 +139,7 @@ class _LandingPageState extends State<LandingPage> {
                                   ),
                                 ],
                               ),
-                            ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.2),
+                            ),
                             const SizedBox(height: 32),
                             Text(
                               'Empower Your Learning\nJourney With EduVision',
@@ -169,7 +151,7 @@ class _LandingPageState extends State<LandingPage> {
                                 letterSpacing: -1.0,
                               ),
                               textAlign: TextAlign.center,
-                            ).animate().fadeIn(delay: 400.ms).slideY(begin: 0.2),
+                            ),
                             const SizedBox(height: 24),
                             Text(
                               'A unified platform to manage smart notes, course progress, academic classes, libraries, and class test trackings. Seamlessly organize everything in one space.',
@@ -179,7 +161,7 @@ class _LandingPageState extends State<LandingPage> {
                                 height: 1.6,
                               ),
                               textAlign: TextAlign.center,
-                            ).animate().fadeIn(delay: 600.ms).slideY(begin: 0.2),
+                            ),
                             const SizedBox(height: 48),
 
                             // Main CTA
@@ -201,7 +183,7 @@ class _LandingPageState extends State<LandingPage> {
                                     'Create Free Account',
                                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                                   ),
-                                ).animate().fadeIn(delay: 800.ms).scale(),
+                                ),
                               ],
                             ),
                           ],
@@ -221,7 +203,7 @@ class _LandingPageState extends State<LandingPage> {
                         letterSpacing: -0.5,
                       ),
                       textAlign: TextAlign.center,
-                    ).animate().fadeIn(delay: 900.ms),
+                    ),
                     const SizedBox(height: 48),
 
                     GridView.count(
@@ -269,7 +251,7 @@ class _LandingPageState extends State<LandingPage> {
                           color: const Color(0xFF8B5CF6),
                         ),
                       ],
-                    ).animate().fadeIn(delay: 1.seconds),
+                    ),
 
                     const SizedBox(height: 100),
 
